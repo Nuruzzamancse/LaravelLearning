@@ -8,8 +8,12 @@
 
 		<center><h1>To Lists</h1></center>
 		<ul class="list-group"> 
-		<li class="list-group-item">
-			This is first Item
+			@foreach($todos as $todo)
+			<li class="list-group-item">
+				{{($todo->title)}}
+				<span class="pull-right  ">{{$todo->created_at->diffForHumans()}}</span>
+			</li>
+			@endforeach
 		</li>
 		</ul>
 		

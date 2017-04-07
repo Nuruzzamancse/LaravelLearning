@@ -18,3 +18,10 @@ form
 	database
 
 save data to database
+
+validations
+display errors
+
+created_at with carbon
+
+trim data

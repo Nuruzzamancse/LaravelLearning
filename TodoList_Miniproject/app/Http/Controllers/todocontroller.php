@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\todo;
 
 class todocontroller extends Controller
 {
@@ -13,7 +14,8 @@ class todocontroller extends Controller
      */
     public function index()
     {
-        return view('todo.home');
+        $todos = todo::all();
+        return view('todo.home',compact('todos'));
     }
 
     /**
@@ -34,7 +36,16 @@ class todocontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $todo = new todo;
+        $this->validate($request,[
+            'body'=>'required',
+            'title'=>'required|unique:todos',
+            ]);
+        $todo->body = $request->body;
+        $todo->title = $request->title;
+        $todo->save();
+
+        return redirect('/todo');
     }
 
     /**
