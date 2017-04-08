@@ -2,7 +2,8 @@
 
 @section('body')
 	<br>
-
+	@include('todo.partials.message')
+	
 	<a href="todo/create" class="btn btn-info">Add New</a>
 	<div class="col-lg-6 col-lg-offset-3">
 
@@ -21,6 +22,16 @@
 			@foreach($todos as $todo)
 			<li class="list-group-item">
 				<a href="{{'/todo/'. $todo->id.'/edit'}}">Edit</a>
+
+				<form class="form-group pull-right" action="{{'/todo/'. $todo->id}}" method="post">
+
+					{{csrf_field()}}
+
+				  {{method_field('DELETE')}}
+
+				<button type="submit"  style="border:none"><span class="glyphicon glyphicon-remove"></span></i></a></button>
+
+				</form>
 				
 			</li>
 			@endforeach
