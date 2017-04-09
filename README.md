@@ -1,2 +1,2 @@
-# LaravelByUbuntu
-Laravel 5.4 
+# Laravel
+Laravel 5.4
