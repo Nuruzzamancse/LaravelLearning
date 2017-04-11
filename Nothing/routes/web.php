@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/file',function(){
-	return view('file.home');
-});
+
+
+Route::get('about','testController@about')->middleware('test:Nuruzzaman');
+Route::get('contact','testController@contact')->middleware('test:Nabwab');

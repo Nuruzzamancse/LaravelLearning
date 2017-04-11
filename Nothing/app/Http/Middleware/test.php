@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\User;
 
 class test
 {
@@ -13,8 +14,17 @@ class test
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$name)
     {
+        $user = user::find(1);
+
+        if($name!=$user->name){
+
+            throw new \Exception("Your Name is not Nuruzzaman");
+            
+
+        }
+
         return $next($request);
     }
 }
