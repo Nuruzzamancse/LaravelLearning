@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Document</title>
-</head>
-<body>
-<h1>Send Mail</h1>
+@component('mail::message')
+# Introduction
 
-	<form action="send" method="post">
+The body of your message.
 
-		{{csrf_field()}}
-		to: <input type="text" name="to">
-		message: <textarea name="message" cols="30" rows="10"></textarea>
-		<input type="submit" value="Send">
-		</form>
-</body>
-</html>
+@component('mail::button', ['url' => ''])
+Button Text
+@endcomponent
+
+Thanks,<br>
+{{ config('app.name') }}
+@endcomponent
